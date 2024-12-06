@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Brute : EnemyParent
+public class Brute : Unit, IMovable, IDamagable
 {
     
     // Start is called before the first frame update
@@ -14,12 +14,12 @@ public class Brute : EnemyParent
     // Update is called once per frame
     void Update()
     {
-        StartRunnin(3*Time.deltaTime);
+        Move(3*Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        hit(1);
+        TakeDamage(1);
        
     }
 }

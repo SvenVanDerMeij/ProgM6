@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elf : EnemyParent
+public class Elf : Unit, IMovable, IDamagable
 {
     private float invisibletimer;
     
@@ -30,11 +30,11 @@ public class Elf : EnemyParent
             invisibletimer = 0;
             
         }
-        StartRunnin(4 * Time.deltaTime);
+        Move(4 * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        hit(1);
+        TakeDamage(1);
         
     }
     private void ToggleInvisibility(bool visible)
